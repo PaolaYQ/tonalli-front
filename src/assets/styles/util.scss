@@ -1,0 +1,37 @@
+:root {
+    --primary-color: #FFB901;
+    --white: #FFFFFF;
+    --accent: #ECF1F4;
+    --onyx: #0E0E2C;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.a-center {
+    align-items: center;
+}
+
+.a-end {
+    align-items: end;
+}
+
+.j-center {
+    justify-content: center;
+}
+
+.j-between {
+    justify-content: space-between;
+}
+
+.j-end {
+    justify-content: flex-end;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.shadow-top {}

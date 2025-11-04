@@ -1,0 +1,43 @@
+.wrapper {
+    min-height: 100vh;
+}
+
+.header{
+    padding: 1.6rem;
+}
+
+.content {
+    min-height: 50dvh;
+    gap: 1rem;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 20px 20px 0 0;
+    padding: 2rem;
+    position: relative
+}
+
+app-button {
+    display: block;
+    width: 100%;
+}
+
+.form {
+    gap: 2rem;
+}
+
+.cat-image {
+    width: 19rem;
+    position: absolute;
+    top: -15rem;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: -1;
+}
+
+
+#forgot {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-weight: bold;
+    text-align: end;
+}
