@@ -1,0 +1,42 @@
+//B U T T O N 
+.mat-mdc-unelevated-button:not(:disabled) {
+    background-color: var(--onyx) !important;
+    border-radius: 1.6rem;
+}
+
+//I N P U T
+.mdc-text-field--outlined:not(.mdc-text-field--disabled) .mat-mdc-notch-piece {
+    border-color: var(--onyx) !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper,
+.mat-mdc-form-field-bottom-align::before {
+    display: none !important;
+}
+
+.mdc-notched-outline__leading {
+    border-top-left-radius: 1rem !important;
+    border-bottom-left-radius: 1rem !important;
+}
+
+.mdc-notched-outline__trailing {
+    border-top-right-radius: 1rem !important;
+    border-bottom-right-radius: 1rem !important;
+}
+
+.mdc-text-field--outlined .mat-mdc-form-field-infix,
+.mdc-text-field--no-label .mat-mdc-form-field-infix {
+    padding-top: 1.8rem !important;
+    padding-bottom: 1.8rem !important;
+}
+
+.mat-mdc-form-field-flex {
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+//I C O N 
+
+.mat-mdc-button-base .mat-icon{
+    color: var(--onyx);
+}

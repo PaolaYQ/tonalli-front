@@ -1,0 +1,35 @@
+<div class="wrapper flex flex-column j-between">
+
+    <div class="header flex j-between a-center">
+        <button mat-icon-button (click)="goBack()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <a href="">Registrar</a>
+    </div>
+    
+    <div class="content flex flex-column">
+        @if (password.showPassword) {
+            <img class="cat-image" src="/assets/images/cat_covered.png" alt="">
+        } @else{
+            <img class="cat-image" src="/assets/images/cat_idle.png" alt="">
+        }
+        <h2>Iniciar Sesión</h2>
+        <form class="form flex flex-column">
+            <p>Complete los campos para iniciar sesión</p>
+
+            <app-input  placeholder="Nombre de usuario" 
+                        label="Usuario"
+                        prefix="person"/>
+
+            <app-input #password  placeholder="*************" 
+                        label="Contraseña" 
+                        prefix="vpn_key"
+                        type="password" 
+                        [alternate]="true"
+                        />
+
+            <a id="forgot">Olvidé mi contraseña</a>
+            <app-button label="Inciar Sesion" />
+        </form>
+    </div>
+</div>

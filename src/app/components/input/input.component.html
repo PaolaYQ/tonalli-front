@@ -1,0 +1,30 @@
+<div class="wrapper flex flex-column">
+  @if (label) {
+    <label >{{label}}</label>
+  }
+  <mat-form-field appearance="outline">
+    @if (prefix) {
+      <mat-icon matTextPrefix>{{prefix}}</mat-icon>
+    }
+
+
+    <input [type]="type" matInput [placeholder]="placeholder">
+      
+      @if (alternate) {
+        <mat-icon matSuffix 
+                  (click)="toggleVisibiliy()" 
+                  onkeypress="toggleVisibility()"
+        >
+          {{showPassword ? 'visibility' : 'visibility_off'}}
+        </mat-icon>
+      }
+
+    
+   
+
+    @if(suffix){
+      <mat-icon matSuffix>{{suffix}}</mat-icon>
+    }
+  </mat-form-field>
+
+</div>
