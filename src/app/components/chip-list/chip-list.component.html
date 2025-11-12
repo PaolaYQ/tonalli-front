@@ -1,0 +1,5 @@
+<div class="wrapper flex a-center">
+  @for(chip of chips; track $index){
+    <app-chip [config]="chip" (click)="toggleSelected(chip)"></app-chip>
+  }
+</div>

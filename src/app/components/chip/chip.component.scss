@@ -1,0 +1,21 @@
+.chip {
+    padding: 10px 25px;
+    border-radius: 30px;
+        cursor: pointer;
+}
+
+.chip:not(.active):hover {
+
+    background-color: var(--light-slate);
+}
+
+
+
+.active {
+    background-color: var(--primary-color);
+    color: var(--onyx);
+}
+
+.inactive {
+    background-color: transparent;
+}

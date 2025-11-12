@@ -1,0 +1,23 @@
+.wrapper{
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.left{
+    gap: 1rem;
+}
+
+a{
+    text-decoration: underline;
+}
+
+.best-students{
+    gap: 2rem;
+    overflow-x: auto;
+}
+
+.games-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}

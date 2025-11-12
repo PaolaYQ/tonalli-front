@@ -1,0 +1,22 @@
+.wrapper {
+    padding: 1rem 1.6rem;
+    border-radius: 1rem;
+    // background-color: #9191FF;
+    aspect-ratio: 1 / 1;
+    /* alto = ancho automáticamente */
+
+}
+
+.wrapper:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--light-slate);
+}
+
+.menu-container {
+    width: 100%;
+}
+
+p {
+    color: var(--white);
+    text-align: center;
+}

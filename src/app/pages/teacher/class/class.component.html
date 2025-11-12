@@ -1,0 +1,38 @@
+<div class="wrapper flex flex-column">
+  <div class="flex a-center j-between">
+    <div class="left flex a-center">
+      <button mat-icon-button (click)="goBack()"><mat-icon fontIcon="arrow_back" /></button>
+      <h3>Clase nombre</h3>
+    </div>
+    <button mat-icon-button><mat-icon fontIcon="qr_code" /></button>
+  </div>
+  <app-divider />
+  <div class="flex a-center j-between">
+    <h3>Mejores estudiantes</h3>
+    <a href="#" class="small">Ver todos</a>
+  </div>
+  <div class="best-students flex a-center">
+    <app-simple-avatar />
+    <app-simple-avatar />
+    <app-simple-avatar />
+    <app-simple-avatar />
+
+  </div>
+  <app-divider />
+  <h3>Actividades</h3>
+  <app-chip-list [chips]="activitiesChips"/>
+  <div class="games-grid">
+    <app-subject />
+    <app-subject />
+    <app-subject />
+    <app-subject />
+  </div>
+  <app-divider />
+  <h3>Juegos</h3>
+  <div class="games-grid">
+    <app-subject />
+    <app-subject />
+    <app-subject />
+    <app-subject />
+  </div>
+</div>

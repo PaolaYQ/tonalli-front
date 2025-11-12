@@ -3,6 +3,7 @@
     --white: #FFFFFF;
     --accent: #ECF1F4;
     --onyx: #0E0E2C;
+    --light-slate: #8C8CA1
 }
 
 
@@ -35,3 +36,15 @@
 }
 
 .shadow-top {}
+
+.accent-bg {
+    background-color: var(--accent);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.small {
+    font-size: 1.4rem;
+}

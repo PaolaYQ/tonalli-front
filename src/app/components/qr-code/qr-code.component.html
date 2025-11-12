@@ -1,0 +1,9 @@
+<div class="wrapper accent-bg flex flex-column">
+  <h3>Agregar clase</h3>
+  <qrcode [qrdata]="code" [width]="300" [margin]="1" [colorLight]="'#ECF1F4'"></qrcode>
+  <h3 class="code">{{code | letterSpacing}}</h3>
+
+  <div class="buttons flex a-center j-center">
+    <app-button label="Aceptar"/>
+  </div>
+</div>
