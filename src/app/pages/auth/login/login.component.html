@@ -14,22 +14,24 @@
             <img class="cat-image" src="/assets/images/cat_idle.png" alt="">
         }
         <h2>Iniciar Sesión</h2>
-        <form class="form flex flex-column">
+        <div class="form flex flex-column">
             <p>Complete los campos para iniciar sesión</p>
 
             <app-input  placeholder="Nombre de usuario" 
                         label="Usuario"
-                        prefix="person"/>
+                        prefix="person"
+                        [_formControl]="getControl('username')"/>
 
             <app-input #password  placeholder="*************" 
                         label="Contraseña" 
                         prefix="vpn_key"
                         type="password" 
                         [alternate]="true"
+                        [_formControl]="getControl('password')"
                         />
 
             <a id="forgot">Olvidé mi contraseña</a>
-            <app-button label="Inciar Sesion" />
-        </form>
+            <app-button label="Inciar Sesion" (click)="login()" />
+        </div>
     </div>
 </div>

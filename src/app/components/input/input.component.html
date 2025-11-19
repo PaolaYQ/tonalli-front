@@ -2,13 +2,12 @@
   @if (label) {
     <label >{{label}}</label>
   }
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" >
     @if (prefix) {
       <mat-icon matTextPrefix>{{prefix}}</mat-icon>
     }
 
-
-    <input [type]="type" matInput [placeholder]="placeholder">
+    <input [type]="type" matInput [placeholder]="placeholder" [formControl]="_formControl">
       
       @if (alternate) {
         <mat-icon matSuffix 
@@ -18,9 +17,6 @@
           {{showPassword ? 'visibility' : 'visibility_off'}}
         </mat-icon>
       }
-
-    
-   
 
     @if(suffix){
       <mat-icon matSuffix>{{suffix}}</mat-icon>

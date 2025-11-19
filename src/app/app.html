@@ -1,1 +1,11 @@
 <router-outlet />
+<ngx-sonner-toaster richColors position="top-right" />
+
+<ng-container *ngIf="loader.loading()">
+  <div class="loader-overlay">
+    <!-- <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+     -->
+
+     cargando
+  </div>
+</ng-container>

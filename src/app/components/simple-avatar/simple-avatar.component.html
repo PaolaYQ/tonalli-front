@@ -1,4 +1,8 @@
 <div class="wrapper flex a-center">
-  <img src="/assets/images/avatar-small.png" alt="">
-  <p class="small">Daniel Perez</p>
+@if (info.avatarUrl) {
+    <img [src]="info.avatarUrl" alt="">
+  }@else {
+    <app-no-photo [name]="info.nombre!"/>
+  }
+  <p class="small">{{info.nombre}}</p>
 </div>

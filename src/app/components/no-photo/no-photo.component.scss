@@ -1,0 +1,15 @@
+.wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p {
+    color: var(--white);
+    font-weight: bold;
+
+}

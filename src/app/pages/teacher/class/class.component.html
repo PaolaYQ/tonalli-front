@@ -2,9 +2,9 @@
   <div class="flex a-center j-between">
     <div class="left flex a-center">
       <button mat-icon-button (click)="goBack()"><mat-icon fontIcon="arrow_back" /></button>
-      <h3>Clase nombre</h3>
+      <h3>{{classInfo!.nombreClase}}</h3>
     </div>
-    <button mat-icon-button><mat-icon fontIcon="qr_code" /></button>
+    <button mat-icon-button (click)="showCode()" ><mat-icon fontIcon="qr_code" /></button>
   </div>
   <app-divider />
   <div class="flex a-center j-between">
@@ -12,20 +12,19 @@
     <a href="#" class="small">Ver todos</a>
   </div>
   <div class="best-students flex a-center">
-    <app-simple-avatar />
-    <app-simple-avatar />
-    <app-simple-avatar />
-    <app-simple-avatar />
+    @for (student of topStudents; track $index) {
+      <app-simple-avatar [info]="student" />
+    }
 
   </div>
   <app-divider />
   <h3>Actividades</h3>
   <app-chip-list [chips]="activitiesChips"/>
   <div class="games-grid">
-    <app-subject />
-    <app-subject />
-    <app-subject />
-    <app-subject />
+    @for (activity of activities; track activity.idActividad) {
+      <app-subject [data]="activity"/>
+    }
+  
   </div>
   <app-divider />
   <h3>Juegos</h3>

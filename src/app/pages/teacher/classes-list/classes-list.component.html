@@ -1,5 +1,5 @@
 <div class="wrapper accent-bg flex flex-column">
-  <app-avatar />
+  <app-avatar [info]="teacherProfile"  />
   <app-divider />
   <div class="header flex j-between a-center">
     <h3>Mis clases</h3>
@@ -7,11 +7,8 @@
   </div>
   <app-chip-list [chips]="classesChips"/>
   <div class="classes-wrapper">
-    <app-classes-wrapper /> 
-    <app-classes-wrapper /> 
-    <app-classes-wrapper /> 
-    <app-classes-wrapper /> 
-    <app-classes-wrapper /> 
-    <app-classes-wrapper /> 
+    @for (classData of classes; track $index) {
+      <app-classes-wrapper [class]="classData" /> 
+    } 
   </div>
 </div>

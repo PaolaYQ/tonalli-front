@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -34,6 +34,9 @@ export class InputComponent implements OnInit {
 
   @Input()
   alternate: boolean = false;
+
+  @Input()
+  _formControl!: FormControl;
 
   showPassword: boolean = false;
 
