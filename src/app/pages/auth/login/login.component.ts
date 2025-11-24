@@ -3,7 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ButtonComponent } from '../../../components/button/button.component';
 import { InputComponent } from '../../../components/input/input.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Controllable } from '../../../util/controllable';
 import { LoginRequest } from '../../../types/login.request';
@@ -21,11 +21,14 @@ export default class LoginComponent
   extends Controllable<LoginRequest>
   implements OnInit, OnDestroy
 {
+  userType!: string;
+
   constructor(
     private readonly renderer: Renderer2,
     private readonly router: Router,
     private readonly fb: FormBuilder,
     private readonly authService: AuthService,
+    private readonly route: ActivatedRoute
   ) {
     super();
   }
@@ -37,6 +40,7 @@ export default class LoginComponent
       'var(--primary-color)'
     );
     this.initForm();
+    this.getUserType();
   }
 
   ngOnDestroy(): void {
@@ -49,7 +53,12 @@ export default class LoginComponent
 
   login() {
     this.authService.login(this.form.value).subscribe((response) => {
-      this.router.navigate(['/clases']);
+      if (this.userType === 'M') {
+        this.router.navigate(['/clases']);
+      }
+      if (this.userType === 'A') {
+        this.router.navigate(['student/classroom']);
+      }
     });
   }
 
@@ -57,6 +66,12 @@ export default class LoginComponent
     this.form = this.fb.group<LoginRequest>({
       username: '',
       password: '',
+    });
+  }
+
+  private getUserType() {
+    this.route.queryParamMap.subscribe((params) => {
+      this.userType = params.get('type') as string;
     });
   }
 }

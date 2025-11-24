@@ -1,8 +1,15 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AvatarResponse } from '../../types/profile.types';
 import { NoPhotoComponent } from '../no-photo/no-photo.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-avatar',
@@ -10,13 +17,18 @@ import { NoPhotoComponent } from '../no-photo/no-photo.component';
   styleUrls: ['./avatar.component.scss'],
   standalone: true,
   imports: [MatButtonModule, MatIconModule, NoPhotoComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AvatarComponent implements OnInit {
   @Input()
   info!: AvatarResponse;
 
-  constructor() {}
+  constructor(private readonly router: Router) {}
 
   ngOnInit() {}
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/welcome']);
+  }
 }

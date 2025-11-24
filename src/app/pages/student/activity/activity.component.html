@@ -1,0 +1,17 @@
+<div class="wrapper flex flex-column">
+    <div class="header flex j-between a-center">
+        <button mat-icon-button (click)="goBack()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <p>{{currentQuestionIndex+1}} de 10</p>
+    </div>
+    <div class="progress-bar">
+      <div class="progress" [ngStyle]="{'width': width+'%'}"></div>
+    </div>
+
+    <div class="question-wrapper flex a-center j-center">
+      <app-question [questionData]="activityResponse.preguntas[currentQuestionIndex]"/>
+    </div>
+
+    <app-button [label]='getButtonLabel()' (click)="handleMainAction()"/>
+</div>

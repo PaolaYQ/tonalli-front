@@ -19,10 +19,10 @@
   </div>
   <app-divider />
   <h3>Actividades</h3>
-  <app-chip-list [chips]="activitiesChips"/>
+  <app-chip-list [chips]="activitiesChips" (onChipChange)="changeTab($event)"/>
   <div class="games-grid">
     @for (activity of activities; track activity.idActividad) {
-      <app-subject [data]="activity"/>
+      <app-subject [data]="activity" [clasCode]="classInfo.codigoClase" (onAssign)="assigned($event)"/>
     }
   
   </div>

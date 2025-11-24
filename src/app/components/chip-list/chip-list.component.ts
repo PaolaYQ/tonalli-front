@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ChipConfig } from '../../types/chip.types';
 import { ChipComponent } from '../chip/chip.component';
 
@@ -11,6 +11,9 @@ import { ChipComponent } from '../chip/chip.component';
   imports: [ChipComponent, CommonModule],
 })
 export class ChipListComponent implements OnInit {
+  @Output()
+  onChipChange: EventEmitter<number> = new EventEmitter<number>();
+
   @Input() chips: ChipConfig[] = [];
 
   selectedChipIndex: number = 0;
@@ -19,10 +22,11 @@ export class ChipListComponent implements OnInit {
 
   ngOnInit() {}
 
-  toggleSelected(chip: ChipConfig){
+  toggleSelected(chip: ChipConfig) {
     this.selectedChipIndex = this.chips.indexOf(chip);
     this.chips.forEach((c, index) => {
       c.selected = index === this.selectedChipIndex;
-    })
+    });
+    this.onChipChange.emit(this.selectedChipIndex);
   }
 }

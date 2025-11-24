@@ -1,0 +1,28 @@
+.wrapper {
+    padding: 16px;
+    height: 100%;
+}
+
+.progress-bar {
+    background-color: rgba(13, 13, 43, 0.25);
+    height: 9px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    background-color: #00B18B;
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+app-button{
+    width: 100%;
+}
+
+.question-wrapper {
+    width: 100%;
+    flex-grow: 2;
+    
+}

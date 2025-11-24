@@ -1,0 +1,26 @@
+<div class="wrapper accent-bg flex flex-column">
+  <h3>{{this.data.title}}</h3>
+  <p>Seleccione la fecha y hora limite para realizar la actividad</p>
+    <p>Fecha</p>
+  <mat-form-field appearance="outline">
+    <input matInput [matDatepicker]="picker" [formControl]="dateControl">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <p>Hora</p>
+
+
+  <mat-form-field appearance="outline">
+  <mat-label>Pick a time</mat-label>
+  <input matInput [matTimepicker]="timepicker"  [formControl]="timeControl">
+  <mat-timepicker-toggle matIconSuffix [for]="timepicker"/>
+  <mat-timepicker #timepicker/>
+</mat-form-field>
+
+  <div class="buttons flex a-center j-between">
+    <app-button label="Cancelar" type="secondary" (click)="cancel()"/>
+    <app-button label="Aceptar" (click)="assign()"/>
+  </div>
+</div>
+

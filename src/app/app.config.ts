@@ -10,12 +10,14 @@ import { routes } from './app.routes';
 import { authErrorInterceptor } from './interceptors/auth-error.interceptor';
 import { jwtInterceptor } from './interceptors/jwt.interceptor';
 import { loaderInterceptor } from './interceptors/loader.interceptor';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    provideNativeDateAdapter(),
     provideHttpClient(
       withInterceptors([
         authErrorInterceptor,

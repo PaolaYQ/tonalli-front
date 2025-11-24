@@ -25,4 +25,10 @@ export const routes: Routes = [
       import('./pages/teacher/teacher.routing').then((r) => r.routes),
     canActivate: [appGuard],
   },
+  {
+    path: 'student',
+    loadChildren: () =>
+      import('./pages/student/student.routing').then((r) => r.routes),
+    canActivate: [appGuard],
+  },
 ];

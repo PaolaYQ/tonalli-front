@@ -1,0 +1,11 @@
+<div class="wrapper flex flex-column">
+  <h3>
+    {{questionData.enunciado}}
+  </h3>
+
+  <app-answer #answerA [label]="questionData.opcionA" option="A" (click)="onSelect(answerA)"/>
+  <app-answer #answerB [label]="questionData.opcionB" option="B" (click)="onSelect(answerB)"/>
+  <app-answer #answerC [label]="questionData.opcionC" option="C" (click)="onSelect(answerC)"/>
+  <app-answer #answerD [label]="questionData.opcionD" option="D" (click)="onSelect(answerD)"/>
+
+</div>

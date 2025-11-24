@@ -15,7 +15,7 @@ export default class WelcomeComponent implements OnInit {
 
   ngOnInit() {}
 
-  navigateToAuth() {
-    this.router.navigate(['/auth']);
+  navigateToAuth(type: string) {
+    this.router.navigate(['/auth'], { queryParams: { type } });
   }
 }

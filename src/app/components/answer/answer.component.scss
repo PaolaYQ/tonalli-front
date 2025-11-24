@@ -1,0 +1,42 @@
+:host {
+    width: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    border: 2px solid #8C8CA1;
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+.indicator {
+    border: 2px solid #8C8CA1;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.indicator.selected {
+    border: none;
+    background-color: var(--onyx);
+}
+
+.wrong {
+    border: 2px solid var(--error);
+    background-color: var(--error-lighter);
+}
+
+.wrong .indicator {
+    background-color: var(--error);
+    border: 2px solid var(--error);
+}
+
+.correct {
+    border: 2px solid var(--success);
+    background-color: var(--success-lighter);
+}
+
+.correct .indicator {
+    background-color: var(--success);
+    border: 2px solid var(--success-lighter);
+}

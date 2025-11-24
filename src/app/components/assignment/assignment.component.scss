@@ -1,0 +1,24 @@
+.wrapper {
+    padding: 1rem 1.6rem;
+    border-radius: 1rem;
+    aspect-ratio: 1 / 1;
+}
+
+
+.menu-container {
+    width: 100%;
+}
+
+p {
+    color: var(--white);
+    text-align: center;
+}
+
+button{
+    border: none;
+    background-color: var(--white);
+    color: var(--onyx);
+    padding: 5px 32px;
+    border-radius: 20px;
+    font-size: 16px;
+}

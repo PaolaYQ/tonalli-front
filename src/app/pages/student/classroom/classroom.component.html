@@ -1,0 +1,13 @@
+<div class="wrapper accent-bg flex flex-column">
+  <app-avatar [info]="studentProfile"  />
+  <app-divider />
+  <div class="header flex j-between a-center">
+    <h3>Mis actividades</h3>
+  </div>
+  <app-chip-list [chips]="actividadesChips" (onChipChange)="changeTab($event)"/>
+  <div class="classes-wrapper">
+    @for (activity of shownActivities; track $index) {
+      <app-assignment [data]="activity" />
+    }
+  </div>
+</div>

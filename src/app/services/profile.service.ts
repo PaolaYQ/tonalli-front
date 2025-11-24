@@ -9,7 +9,7 @@ import { ClassCard } from '../types/class.types';
   providedIn: 'root',
 })
 export class UserService {
-  baseUrl = `${environment.baseUrl}/user`;
+  private readonly baseUrl = `${environment.baseUrl}/user`;
   constructor(private readonly http: HttpClient) {}
 
   getBasicInfoProfile(): Observable<AvatarResponse> {

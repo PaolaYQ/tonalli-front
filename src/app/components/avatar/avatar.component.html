@@ -1,14 +1,19 @@
-<div class="wrapper flex a-center j-between">
 
-  <div class="avatar flex a-center">
-  @if (info!.avatarUrl) {
-    <img [src]="info.avatarUrl" alt="">
-  }@else {
-    <app-no-photo [name]="info.nombre!"/>
-  }
-    <p> <span class="bold">Hola,</span> {{info.nombre}}</p>
+
+  <div class="wrapper flex a-center j-between">
+    @if (info) {
+    
+    <div class="avatar flex a-center">
+      @if (info!.avatarUrl) {
+        <img [src]="info.avatarUrl" alt="">
+      }@else {
+        <app-no-photo [name]="info.nombre!"/>
+      }
+      <p> <span class="bold">Hola,</span> {{info.nombre}}</p>
+    </div>
+    }
+    
+    <button mat-icon-button (click)="logout()"><mat-icon fontIcon="settings"/></button>
+    
   </div>
 
-  <button mat-icon-button><mat-icon fontIcon="settings"/></button>
-
-</div>

@@ -1,20 +1,20 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute, Router, CanActivateFn } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { ChipListComponent } from '../../../components/chip-list/chip-list.component';
 import { DividerComponent } from '../../../components/divider/divider.component';
+import { QrCodeDialogComponent } from '../../../components/qr-code/qr-code.component';
 import { SimpleAvatarComponent } from '../../../components/simple-avatar/simple-avatar.component';
 import { SubjectComponent } from '../../../components/subject/subject.component';
-import { ChipConfig } from '../../../types/chip.types';
-import { forkJoin } from 'rxjs';
 import { ClassService } from '../../../services/class.service';
+import { ActivityResponse } from '../../../types/activities.types';
+import { ChipConfig } from '../../../types/chip.types';
 import { ClassInfo, CodeClass } from '../../../types/class.types';
-import { MatDialog } from '@angular/material/dialog';
-import { QrCodeDialogComponent } from '../../../components/qr-code/qr-code.component';
 import { AvatarResponse } from '../../../types/profile.types';
 import { StudentInfo } from '../../../types/student.types';
-import { ActivityResponse } from '../../../types/activities.types';
 
 @Component({
   selector: 'app-class',
@@ -45,6 +45,8 @@ export default class ClassComponent implements OnInit {
   topStudents: AvatarResponse[] = [];
   activities: ActivityResponse[] = [];
 
+  allActivities: ActivityResponse[] = [];
+
   activitiesChips: ChipConfig[] = [
     { label: 'Pendientes', selected: true },
     { label: 'Asignadas', selected: false },
@@ -65,6 +67,22 @@ export default class ClassComponent implements OnInit {
     this.dialog.open(QrCodeDialogComponent, { data: codeObject });
   }
 
+  changeTab(event: number) {
+    if (event === 0) {
+      this.activities = this.allActivities.filter((a) => a.asignada === false);
+    }
+    if (event === 1) {
+      this.activities = this.allActivities.filter((a) => a.asignada === true);
+    }
+  }
+
+  assigned(idActivity: number) {
+    this.allActivities.forEach((a) => {
+      if (a.idActividad === idActivity) a.asignada = true;
+    });
+    this.activities = this.allActivities.filter((a) => a.asignada === false);
+  }
+
   private get classCode(): string {
     return this.route.snapshot.paramMap.get('id') as string;
   }
@@ -79,7 +97,8 @@ export default class ClassComponent implements OnInit {
       result.studentsData.forEach((s) => {
         this.setStudent(s);
       });
-      this.activities = result.activitiesData;
+      this.allActivities = result.activitiesData;
+      this.activities = this.allActivities.filter((a) => a.asignada === false);
     });
   }
 
