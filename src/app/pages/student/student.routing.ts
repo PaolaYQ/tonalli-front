@@ -17,4 +17,12 @@ export const routes: Routes = [
     loadComponent: () => import('./activity/activity.component'),
     resolve: { item: ActivityResolver },
   },
+  {
+    path: 'detail',
+    loadComponent: () => import('./detail/detail.component'),
+  },
+  {
+    path: 'edit',
+    loadComponent: () => import('./edit/edit.component'),
+  },
 ];

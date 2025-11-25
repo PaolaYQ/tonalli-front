@@ -14,9 +14,8 @@ import { C } from '@angular/cdk/keycodes';
   imports: [MatButtonModule, MatIconModule, ColorCycleDirective],
 })
 export class ClassesWrapperComponent implements OnInit {
-  
   @Input()
-  class!: ClassCard
+  class!: ClassCard;
 
   private readonly router = inject(Router);
 
@@ -30,6 +29,5 @@ export class ClassesWrapperComponent implements OnInit {
 
   openMenu(event: Event) {
     event.stopPropagation();
-
   }
 }

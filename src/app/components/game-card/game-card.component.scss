@@ -1,0 +1,37 @@
+.wrapper {
+    padding: 1rem 1.6rem;
+    border-radius: 1rem;
+    aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+.menu-container {
+    width: 100%;
+}
+
+p {
+    color: var(--white);
+    text-align: center;
+}
+
+button {
+    border: none;
+    background-color: var(--white);
+    color: var(--onyx);
+    padding: 5px 32px;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+
+.icon{
+    font-weight: bold;
+    font-size: 40px;
+
+    opacity: 0.4;
+    white-space: nowrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

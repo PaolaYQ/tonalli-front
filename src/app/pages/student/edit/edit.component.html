@@ -1,0 +1,94 @@
+<div class="wrapper flex flex-column">
+  
+  <!-- HEADER -->
+  <div class="header flex j-between a-center">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    
+    <!-- Badge de Estrellas -->
+    <div class="stars-badge">
+      <mat-icon class="star-icon">star</mat-icon>
+      <span>{{ estrellasDisponibles }}</span>
+    </div>
+
+    <p mat-button (click)="saveAvatar()" style="color: var(--onyx);">Guardar</p>
+  </div>
+
+  <!-- AVATAR PREVIEW -->
+  <div class="photo-wrapper flex a-center j-center">
+    
+<div class="avatar-stack">
+  
+  <img 
+    *ngIf="selectedItems.get('Fondos')" 
+    [src]="selectedItems.get('Fondos')?.iconoUrl" 
+    class="layer-img"
+    style="z-index: 0;"
+    alt="Fondo">
+
+  <img 
+    [src]="BASE_BODY_URL" 
+    class="layer-img" 
+    style="z-index: 1;"
+    alt="Cuerpo Base">
+
+  <ng-container *ngFor="let layer of layerOrder; let i = index">
+    <img 
+      *ngIf="layer !== 'Fondos' && selectedItems.get(layer)"
+      [src]="selectedItems.get(layer)?.iconoUrl" 
+      class="layer-img"
+      [style.z-index]="i + 2"
+      [alt]="layer">
+  </ng-container>
+
+</div>
+    <!-- Canvas oculto -->
+    <canvas #avatarCanvas style="display: none;"></canvas>
+  </div>
+
+  <!-- PANEL INFERIOR -->
+  <div class="content shadow-top flex flex-column">
+    
+    <app-chip-list 
+      [chips]="typesChips" 
+      (onChipChange)="changeTab($event)"> <!-- $event es el índice -->
+    </app-chip-list>
+
+    <div class="items-grid">
+      <ng-container *ngIf="itemsMap[currentCategory]?.length; else noItems">
+        
+        <div 
+          *ngFor="let item of itemsMap[currentCategory]" 
+          class="shop-item"
+          [class.selected]="selectedItems.get(currentCategory)?.idItem === item.idItem"
+          [class.locked]="!item.adquirido"
+          (click)="selectItem(item)">
+          
+          <img [src]="item.iconoUrl" alt="Icono">
+          <p>{{ item.nombre }}</p>
+          
+          <!-- Overlay de Estado -->
+          <div class="status-overlay">
+             <!-- Check si está puesto -->
+             <mat-icon *ngIf="selectedItems.get(currentCategory)?.idItem === item.idItem" 
+                       class="check-icon">check_circle</mat-icon>
+             
+             <!-- Precio si está bloqueado -->
+             <div *ngIf="!item.adquirido" class="price-tag">
+                <mat-icon>lock</mat-icon>
+                <span>{{ item.precio }}</span>
+             </div>
+          </div>
+
+        </div>
+
+      </ng-container>
+
+      <ng-template #noItems>
+        <p class="empty-msg">No hay ítems disponibles aquí.</p>
+      </ng-template>
+    </div>
+
+  </div>
+</div>

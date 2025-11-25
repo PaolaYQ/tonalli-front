@@ -1,0 +1,61 @@
+.wrapper {
+    min-height: 100vh;
+}
+
+.header {
+    padding: 16px;
+}
+
+.photo-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.photo-wrapper p {
+    text-align: center;
+    margin: 0 16px;
+}
+
+img {
+    width: 100%;
+}
+
+.stars-badge {
+    background: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+    color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    .star-icon {
+        font-size: 20px;
+    }
+}
+
+.content {
+    background-color: var(--accent);
+    flex-grow: 1;
+    padding: 16px;
+    gap: 10px
+}
+
+.stars {
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.medallas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+.medallas img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}

@@ -6,6 +6,7 @@ import { AssignmentsList } from '../types/assignment.types';
 import { ToastService } from './toast.service';
 import { Activity } from '../types/activities.types';
 import { Attemp, SubmitAttemptRequest } from '../types/atemp.types';
+import { ProfileStudentDetail } from '../types/student.types';
 
 @Injectable({
   providedIn: 'root',
@@ -32,5 +33,9 @@ export class StudentService {
     return this.http
       .post<Attemp>(`${this.baseUrl}/attempt`, data)
       .pipe(tap((response) => this.toastService.showSuccess(response.mensaje)));
+  }
+
+  getDetail(): Observable<ProfileStudentDetail>{
+    return this.http.get<ProfileStudentDetail>(`${this.baseUrl}/profile-detail`)
   }
 }

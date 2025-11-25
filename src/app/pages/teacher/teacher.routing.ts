@@ -12,6 +12,15 @@ export const routes: Routes = [
   },
   {
     path: ':id',
-    loadComponent: () => import('./class/class.component'),
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./class/class.component'),
+      },
+      {
+        path: 'papa-caliente/:topic',
+        loadComponent: () => import('./hot-potato/hot-potato.component'),
+      },
+    ],
   },
 ];

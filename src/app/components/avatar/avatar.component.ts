@@ -28,7 +28,7 @@ export class AvatarComponent implements OnInit {
   ngOnInit() {}
 
   logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/welcome']);
+    // localStorage.removeItem('token');
+    this.router.navigate(['student/detail']);
   }
 }

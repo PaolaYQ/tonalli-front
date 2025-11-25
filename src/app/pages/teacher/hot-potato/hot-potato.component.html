@@ -1,0 +1,53 @@
+<div class="game-wrapper" [class.urgent]="timeLeft <= 10 && state === 'PLAYING'">
+  
+  <div class="top-bar">
+    <button mat-icon-button (click)="goBack()" [disabled]="state === 'PLAYING'">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h3 >{{ topicLabel }}</h3>
+  </div>
+
+  <div class="screen setup flex flex-column a-center" *ngIf="state === 'READY'">
+    <div class="potato-icon">🥔</div>
+    <h1>Papa Caliente</h1>
+    <p>Correcta: <b>+3s</b> | Incorrecta: <b>-3s</b></p>
+    
+    <button mat-flat-button color="primary" class="big-btn" (click)="startGame()">
+      <mat-icon>play_arrow</mat-icon> INICIAR
+    </button>
+  </div>
+
+  <div class="screen playing" *ngIf="state === 'PLAYING'">
+    
+    <div class="timer-container">
+      <div class="timer-text">{{ timeLeft }}s</div>
+      <mat-icon class="timer-icon">timer</mat-icon>
+    </div>
+
+    <div class="question-card">
+      <div class="problem">{{ currentQuestion?.text }}</div>
+    </div>
+
+    <div class="options-grid">
+      <button 
+        *ngFor="let opt of currentQuestion?.options"
+        class="option-btn"
+        (click)="checkAnswer(opt)">
+        {{ opt }}
+      </button>
+    </div>
+  </div>
+  @if (state === 'GAME_OVER') {
+  <div class="screen game-over flex flex-column a-center">
+    <div class="boom">💥</div>
+    <h1>¡SE QUEMÓ!</h1>
+    <p>La papa explotó en tus manos.</p>
+    
+    <button mat-flat-button color="accent" class="big-btn" (click)="restart()">
+      <mat-icon>replay</mat-icon> Volver a jugar
+    </button>
+  </div>
+  }
+
+
+</div>

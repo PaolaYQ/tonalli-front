@@ -1,0 +1,33 @@
+<div class="wrapper flex flex-column ">
+  <div class="header flex j-between a-center">
+        <button mat-icon-button (click)="goBack()">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+        <a routerLink="/student/edit">Editar</a>
+    </div>
+    <div class="photo-wrapper flex a-center j-center">
+      @if (!data.avatarUrl) {
+        <p>Aun no has creado tu avatar, haslo pulsando el boton "Editar"</p>
+      } @else {
+        <img [src]="data.avatarUrl" alt="">
+      }
+    </div>
+
+  <div class="content shadow-top flex flex-column">
+    <div class="flex flex-column a-center">
+      <h3>{{data.nombre}}</h3>
+
+      <div class="stars-badge">
+      <mat-icon class="star-icon">star</mat-icon>
+      <span>{{ data.estrellasTotales }}</span>
+    </div>
+    </div>
+    <app-divider />
+    <h4 class="subtitle">Medallas</h4>
+    <div class="medallas">
+      @for (medal of data.medallas; track medal.idMedalla) {
+        <img [src]="medal.iconoUrl" alt="">
+      }
+    </div>
+  </div>
+</div>

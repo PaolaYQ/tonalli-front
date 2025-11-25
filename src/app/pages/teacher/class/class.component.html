@@ -29,9 +29,8 @@
   <app-divider />
   <h3>Juegos</h3>
   <div class="games-grid">
-    <app-subject />
-    <app-subject />
-    <app-subject />
-    <app-subject />
+    @for (game of games; track $index) {
+      <app-game-card [data]="game"/>
+    }
   </div>
 </div>
