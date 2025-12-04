@@ -1,5 +1,5 @@
 .wrapper {
-    min-height: 100vh;
+    min-height: calc(100vh + 60px);
 }
 
 .header {
@@ -52,10 +52,15 @@ img {
 .medallas {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    flex-grow: 1;
 
 }
 
 .medallas img {
     width: 100%;
     aspect-ratio: 1 / 1;
+}
+
+app-button{
+    width: 100%;
 }

@@ -23,12 +23,19 @@ export class AvatarComponent implements OnInit {
   @Input()
   info!: AvatarResponse;
 
+  @Input()
+  isTeacher!: boolean;
+
   constructor(private readonly router: Router) {}
 
   ngOnInit() {}
 
   logout() {
-    // localStorage.removeItem('token');
-    this.router.navigate(['student/detail']);
+    if (this.isTeacher) {
+      localStorage.removeItem('token');
+      this.router.navigate(['/welcome']);
+    } else {
+      this.router.navigate(['student/detail']);
+    }
   }
 }

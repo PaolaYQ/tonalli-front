@@ -5,6 +5,8 @@ import { Observable, tap } from 'rxjs';
 import { environment } from '../../env/enviroment';
 import { LoginRequest } from '../types/login.request';
 import { TokenResponse } from './../types/token.response';
+import RegisterTeacherComponent from '../pages/auth/register-teacher/register-teacher.component';
+import { RegisterTeacherRequest } from '../types/register.types';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +23,15 @@ export class AuthService {
     return this.http.post<TokenResponse>(`${this.baseUrl}/login`, data).pipe(
       tap((response: TokenResponse) => {
         this.toastService.showSuccess('Inicio de sesión exitoso');
+        localStorage.setItem('token', response.token);
+      })
+    );
+  }
+
+  register(data: RegisterTeacherRequest): Observable<TokenResponse> {
+    return this.http.post<TokenResponse>(`${this.baseUrl}/register`, data).pipe(
+      tap((response: TokenResponse) => {
+        this.toastService.showSuccess('Registro exitoso');
         localStorage.setItem('token', response.token);
       })
     );

@@ -8,6 +8,7 @@ import { ProfileStudentDetail } from '../../../types/student.types';
 import { NoPhotoComponent } from '../../../components/no-photo/no-photo.component';
 import { ChipConfig } from '../../../types/chip.types';
 import { ChipListComponent } from '../../../components/chip-list/chip-list.component';
+import { ButtonComponent } from '../../../components/button/button.component';
 
 @Component({
   selector: 'app-detail',
@@ -17,12 +18,11 @@ import { ChipListComponent } from '../../../components/chip-list/chip-list.compo
     MatIconModule,
     MatButtonModule,
     DividerComponent,
-    RouterLink
+    RouterLink,
+    ButtonComponent,
   ],
 })
 export default class DetailComponent implements OnInit {
-
-
   constructor(
     private readonly router: Router,
     private readonly renderer: Renderer2,
@@ -52,5 +52,10 @@ export default class DetailComponent implements OnInit {
     this.studentService
       .getDetail()
       .subscribe((response) => (this.data = response));
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/welcome']);
   }
 }

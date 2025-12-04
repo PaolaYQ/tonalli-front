@@ -13,7 +13,15 @@
     </div>
     }
     
-    <button mat-icon-button (click)="logout()"><mat-icon fontIcon="settings"/></button>
+    <button mat-icon-button (click)="logout()">
+      @if (isTeacher) {
+        <mat-icon fontIcon="logout" style="color: red;"/>
+
+      } @else {
+
+        <mat-icon fontIcon="settings"/>
+      }
+    </button>
     
   </div>
 

@@ -62,6 +62,16 @@ export default class LoginComponent
     });
   }
 
+  register() {
+
+    if (this.userType === 'M') {
+      this.router.navigate(['auth/register']);
+    }
+    if (this.userType === 'A') {
+      this.router.navigate(['auth/join']);
+    }
+  }
+
   private initForm() {
     this.form = this.fb.group<LoginRequest>({
       username: '',
